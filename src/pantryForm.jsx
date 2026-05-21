@@ -3,11 +3,12 @@ export default function PantryForm({list, deleteItem, toggleStock, increment, se
     
     return(
         <>
+        <div style = {{display: 'inline-block', marginRight: '40px'}}>
         <Dropdown changeCategory = {changeCategory}/>
         <SearchBar search = {search} value = {value}/>
         <SortButton sort = {sort} setSortFunc ={setSortFunc}></SortButton>
         <PantryList list = {list} deleteItem = {deleteItem} toggleStock = {toggleStock} increment = {increment}/>
-        
+        </div>
         </>
     )
 }

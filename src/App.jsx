@@ -55,6 +55,7 @@ export default function App()
     else{
       setErrorMessage('')
       setPantry(prev => [...prev, {...formData, id: prev.length+ 1}])
+      return true;
     }
   }
   function setSortFunc()

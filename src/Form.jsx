@@ -11,11 +11,17 @@ const [formData, setFormData] = useState(
 )
 const [errorMessage, setErrorMessage] = useState("")
 
+
 return(
     <>
     <div style = {{display: 'inline-block'}}>
         {errorMessage && (<h1>{errorMessage}</h1>)}
-        <form onSubmit = {(e) => {e.preventDefault(); handleSubmit(formData, setErrorMessage)}}>
+        <form onSubmit = {(e) => {e.preventDefault(); const success = handleSubmit(formData, setErrorMessage); success && setFormData({
+        name: "",
+        quantity: 1,
+        inStock: true,
+        category: 'Canned',
+    })}}>
             <label htmlFor = 'name'>name</label>
             <input id = 'name' value = {formData.name} type  = 'text' onChange = {(e)=>{ setFormData({...formData, name: e.target.value})}}/>
             <select id = 'category' value = {formData.category} onChange = {(e)=>{setFormData({...formData, category: e.target.value})}}>
